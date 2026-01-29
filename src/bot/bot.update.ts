@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Ctx, On, Update } from 'nestjs-telegraf';
 import { Context } from 'telegraf';
+import { UserProfile } from '../interfaces/user-profile.interface';
 import { FirestoreService } from '../services/firestore.service';
 import { OpenAIService } from '../services/openai.service';
-import { UserProfile } from '../interfaces/user-profile.interface';
 
 const STATES = {
   IDLE: 'IDLE',
@@ -36,7 +36,9 @@ export class BotUpdate {
       return;
     }
 
-    const username = ctx.from?.username ?? `${ctx.from?.first_name ?? ''} ${ctx.from?.last_name ?? ''}`.trim();
+    const username =
+      ctx.from?.username ??
+      `${ctx.from?.first_name ?? ''} ${ctx.from?.last_name ?? ''}`.trim();
 
     let profile = await this.firestoreService.getUserProfile(telegramId);
 
