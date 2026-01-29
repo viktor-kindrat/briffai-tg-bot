@@ -1,0 +1,5 @@
+{
+  "name": "@nestjs/core",
+  "version": "0.0.0",
+  "main": "index.js"
+}
