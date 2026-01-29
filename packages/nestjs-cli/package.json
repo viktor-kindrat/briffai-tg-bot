@@ -1,7 +1,0 @@
-{
-  "name": "@nestjs/cli",
-  "version": "0.0.0",
-  "bin": {
-    "nest": "bin/nest.js"
-  }
-}
